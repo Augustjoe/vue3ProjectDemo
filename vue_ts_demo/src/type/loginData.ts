@@ -1,10 +1,9 @@
 export interface loginFromInt {
-  username:string,
-  password:string,
+  userName:string,
+  passWords:string,
 }
-export class formData {
-    formInline:loginFromInt = {
-        username:"",
-        password:""
-    }
+
+export const FromInt:loginFromInt = {
+  userName:"",
+  passWords:""
 }

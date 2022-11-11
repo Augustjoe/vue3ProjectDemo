@@ -18,13 +18,13 @@
 <script setup lang="ts">
 import { reactive,ref } from "@vue/reactivity";
 // 引入规定好的formData类为formInline规定类型
-import { formData } from "@/type/loginData"
-
+import { FromInt } from "@/type/loginData"
+import router from "@/router"
 import type { FormInstance } from 'element-plus'
 
 let formEl = ref<FormInstance>()
 
-const formInline = reactive(new formData())
+const formInline = reactive(FromInt)
 
 const rules = {
   userName: [
@@ -45,7 +45,9 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       console.log(formInline)
-      console.log('submit!')
+      if(formInline.passWords == '123' && formInline.userName == 'admin'){
+        router.push('/')
+      }
     } else {
       console.log('error submit!', fields)
     }
