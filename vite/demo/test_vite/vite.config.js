@@ -22,8 +22,6 @@ export default defineConfig(({command,mode})=>{
         最后一个参数是文件的后缀
     */
    const env = loadEnv(mode,process.cwd(),"")
-   console.log(mode,"mode")
-   console.log(env,"env")
     // command 是build 还是 serve 主要取决于输入的命令是开发环境还是生产环境
    return envResolver[command]()
 })
