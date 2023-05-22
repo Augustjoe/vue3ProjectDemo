@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+const postcssPresetEnv = require('postcss-preset-env')
 
 export default defineConfig({
     optimizeDeps:{
@@ -19,15 +20,18 @@ export default defineConfig({
             // hashPrefix:"hello",
             globalModulePaths:[]
         },
-        preprocessorOptions:{
-            less:{
-                math:'always',
-                globalVars:{ // 设置
-                    mainColor:"red",
-                }
-            }
-        },
-        devSourcemap:true // 可以方便的看到原文件是怎么写的
+        // preprocessorOptions:{
+        //     less:{
+        //         math:'always',
+        //         globalVars:{ // 设置
+        //             mainColor:"red",
+        //         }
+        //     }
+        // },
+        devSourcemap:true, // 可以方便的看到原文件是怎么写的，
+        postcss:{
+            plugins:[postcssPresetEnv]
+        }
 
     }
 })
